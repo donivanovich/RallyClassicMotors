@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  background: $color-ink;
+  color: $color-parchment;
+  border-top: 4px solid $color-leather;
+
+  &__inner {
+    @include container;
+    display: grid;
+    gap: $space-8;
+    padding-block: $space-12;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__title {
+    @include eyebrow;
+    color: $color-leather-light;
+    font-family: $font-mono;
+  }
+
+  &__text {
+    margin: 0;
+    font-style: normal;
+  }
+
+  &__link {
+    color: $color-chrome;
+  }
+
+  &__copy {
+    margin: 0;
+    padding: $space-4;
+    text-align: center;
+    font-size: $font-size-xs;
+    border-top: 1px solid $color-ink-soft;
+  }
+
+  @include mq($bp-tablet) {
+    &__inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

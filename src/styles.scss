@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-ink;
+  background-color: $color-cream;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  line-height: $line-height-tight;
+  margin: 0 0 $space-4;
+}
+
+img { max-width: 100%; display: block; height: auto; }
+
+a { color: $color-racing-green; }
+
+:focus-visible { @include focus-ring; }
+
+.skip-link {
+  position: absolute;
+  left: $space-4;
+  top: -100px;
+  padding: $space-2 $space-4;
+  background: $color-racing-green;
+  color: $color-cream;
+  z-index: 100;
+
+  &:focus-visible { top: $space-4; }
+}
+
+.main { min-height: 70vh; }
+
+//section
+.section {
+  @include container;
+  padding-block: $space-12;
+
+  @include mq($bp-desktop) { padding-block: $space-16; }
+
+  &__eyebrow { @include eyebrow; color: $color-leather; margin: 0 0 $space-2; }
+  &__title { font-size: $font-size-xl; color: $color-racing-green-dark; }
+  &__lead { max-width: 60ch; color: $color-ink-soft; }
+
+  @include mq($bp-tablet) {
+    &__title { font-size: $font-size-2xl; }
+  }
+}
+
+// button
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  border: 2px solid transparent;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-base, color $transition-base, transform $transition-base;
+
+  &:active { transform: translateY(1px); }
+  &:disabled, &--disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+  &--primary { background: $color-racing-green; color: $color-cream; }
+  &--primary:hover { background: $color-racing-green-light; }
+
+  &--secondary { background: $color-burgundy; color: $color-cream; }
+  &--secondary:hover { background: $color-burgundy-dark; }
+
+  &--outline { background: transparent; border-color: $color-racing-green; color: $color-racing-green; }
+  &--outline:hover { background: $color-racing-green; color: $color-cream; }
+
+  &--chrome { background: $gradient-chrome; color: $color-ink; border-color: $color-chrome-dark; }
+  &--chrome:hover { filter: brightness(1.05); }
+}
+
+// badge
+.badge {
+  display: inline-block;
+  padding: $space-1 $space-2;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: $radius-sm;
+  background: $color-parchment;
+  color: $color-leather;
+
+  &--green { background: $color-racing-green; color: $color-cream; }
+  &--burgundy { background: $color-burgundy; color: $color-cream; }
+}
+
+// map
+.map {
+  border: 4px solid $color-leather;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-card;
+
+  &__frame { display: block; width: 100%; height: 320px; border: 0; }
+
+  @include mq($bp-tablet) {
+    &__frame { height: 420px; }
+  }
+}
