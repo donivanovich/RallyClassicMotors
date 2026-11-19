@@ -1,59 +1,42 @@
-# RallyClassicMotors
+# Classic Motor Club
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.30.
+Plataforma web oficial para **Classic Motor Club**, desarrollada como proyecto evaluable del módulo **Diseño de Interfaces Web (DIW - T1)**.
 
-## Development server
+- **Autor:** Ivan Kosolovskyy Fetsyk
+- **Curso:** 2º DAW, Joyfe (2026/2027)
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🔗 Enlaces del Proyecto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Repositorio Público (GitHub):** [https://github.com/donivanovich/RallyClassicMotors](https://github.com/TU_USUARIO/RallyClassicMotors)
+- **Aplicación en Producción:** [https://TU-PROYECTO.vercel.app](https://TU-PROYECTO.vercel.app) *(Sustituir por tu URL de Vercel / Netlify / GitHub Pages)*
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Arquitectura y Tecnologías
 
-```bash
-ng generate component component-name
-```
+- **Framework:** Angular 21 empleando exclusivamente **Standalone Components**.
+- **Enrutado:** Nativo con `provideRouter` y carga diferida (`loadComponent`) para las 5 vistas principales (`/`, `/catalogo`, `/itinerario`, `/inscripcion`, `/guia-estilo`).
+- **Estado Reactivo:** Gestión local con **Angular Signals** (`signal`, `computed`) para el filtrado dinámico en tiempo real del catálogo de vehículos consumiendo datos desde `src/mocks/cars.json`.
+- **Estilos y Maquetación:** SCSS modular (`_variables.scss`, `_mixins.scss`), maquetación propia con **CSS Grid y Flexbox**, metodología **BEM pura** (máximo 3 niveles de anidamiento) y enfoque **Mobile-First** con puntos de ruptura en `375px`, `768px` y `1440px`.
+- **Accesibilidad (WCAG):** HTML5 semántico (`header`, `nav`, `main`, `section`, `article`, `footer`), `lang="es"`, enlace de salto al contenido (`.skip-link`), foco de teclado visible (`:focus-visible`) y atributos `alt` descriptivos.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🤖 Declaración del Uso de Herramientas de Apoyo e Inteligencia Artificial
 
-## Building
+Para el desarrollo de este proyecto se han empleado las siguientes herramientas de apoyo y asistencia técnica:
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Herramientas consultadas:**
+   - Proyectos realizados en prácticas de clase
+   - Documentación oficial de Angular
+   - ChatGPT y Gemini
+2. **Áreas del código donde prestaron asistencia:**
+   - **Auditoría de requisitos y estructura:** Verificación del cumplimiento de la rúbrica técnica (accesibilidad WCAG, estructura BEM y organización de tokens en `_variables.scss`).
+   - **Datos de prueba (Mock JSON):** Apoyo en la redacción de descripciones históricas y fichas técnicas de los vehículos clásicos en `src/mocks/cars.json`.
+   - **Estilos:** Generación del estilos globales agradables con el usuario
+3. **Validaciones realizadas por el alumno:**
+   - Revisión manual y adaptación de todo el código SCSS para garantizar el cumplimiento estricto de BEM sin superar 3 niveles de anidamiento.
+   - Comprobación visual y responsive en navegador en los tres puntos de ruptura exigidos (`375px`, `768px` y `1440px`).
+   - Prueba de navegación completa por teclado (`Tab` / `:focus-visible`) y validación de etiquetas semánticas HTML5.
