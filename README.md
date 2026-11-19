@@ -9,7 +9,7 @@ Plataforma web oficial para **Classic Motor Club**, desarrollada como proyecto e
 
 ## 🔗 Enlaces del Proyecto
 
-- **Repositorio Público (GitHub):** [https://github.com/donivanovich/RallyClassicMotors](https://github.com/TU_USUARIO/RallyClassicMotors)
+- **Repositorio Público (GitHub):** [https://github.com/donivanovich/RallyClassicMotors](https://github.com/donivanovich/RallyClassicMotors)
 - **Aplicación en Producción:** [https://TU-PROYECTO.vercel.app](https://TU-PROYECTO.vercel.app) *(Sustituir por tu URL de Vercel / Netlify / GitHub Pages)*
 
 ---
@@ -36,7 +36,14 @@ Para el desarrollo de este proyecto se han empleado las siguientes herramientas 
    - **Auditoría de requisitos y estructura:** Verificación del cumplimiento de la rúbrica técnica (accesibilidad WCAG, estructura BEM y organización de tokens en `_variables.scss`).
    - **Datos de prueba (Mock JSON):** Apoyo en la redacción de descripciones históricas y fichas técnicas de los vehículos clásicos en `src/mocks/cars.json`.
    - **Estilos:** Generación del estilos globales agradables con el usuario
+   - **README:** Actualizaciones del README
 3. **Validaciones realizadas por el alumno:**
    - Revisión manual y adaptación de todo el código SCSS para garantizar el cumplimiento estricto de BEM sin superar 3 niveles de anidamiento.
    - Comprobación visual y responsive en navegador en los tres puntos de ruptura exigidos (`375px`, `768px` y `1440px`).
    - Prueba de navegación completa por teclado (`Tab` / `:focus-visible`) y validación de etiquetas semánticas HTML5.
+
+---
+
+## 📜 Cláusula de Autoría
+
+«El alumno debe ser capaz de explicar y modificar en directo cualquier parte de su código; lo que no sepa explicar no se considerará de su autoría».
