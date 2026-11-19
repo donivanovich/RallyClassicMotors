@@ -56,7 +56,7 @@
       <h3 class="components__title">Formulario</h3>
       <label class="components__label" for="demo">Etiqueta</label>
       <input class="components__input" id="demo" placeholder="Escribe algo…" [value]="demoValue()" (input)="demoValue.set($any($event.target).value)">
-      <p class="components__echo">Valor: {{ demoValue() || '...' }}</p>
+      <p class="components__echo">Valor: {{ demoValue() || 'Escribe algo…' }}</p>
     </article>
     <article class="components__item">
       <h3 class="components__title">Espacios</h3>
