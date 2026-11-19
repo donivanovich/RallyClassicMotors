@@ -10,7 +10,7 @@ Plataforma web oficial para **Classic Motor Club**, desarrollada como proyecto e
 ## 🔗 Enlaces del Proyecto
 
 - **Repositorio Público (GitHub):** [https://github.com/donivanovich/RallyClassicMotors](https://github.com/donivanovich/RallyClassicMotors)
-- **Aplicación en Producción:** [https://TU-PROYECTO.vercel.app](https://TU-PROYECTO.vercel.app) *(Sustituir por tu URL de Vercel / Netlify / GitHub Pages)*
+- **Aplicación en Producción:** [https://rally-classic-motors.vercel.app/](https://rally-classic-motors.vercel.app/)
 
 ---
 
