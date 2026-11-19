@@ -10,13 +10,13 @@ export class StyleGuide {
   readonly colors = [
     { name: 'Racing Green', token: '$color-racing-green', hex: '#1f3d2b', mod: 'green' },
     { name: 'Racing Green Dark', token: '$color-racing-green-dark', hex: '#142a1d', mod: 'green-dark' },
-    { name: 'Burdeos', token: '$color-burgundy', hex: '#6d1f2a', mod: 'burgundy' },
-    { name: 'Cuero', token: '$color-leather', hex: '#8b5a2b', mod: 'leather' },
     { name: 'Cuero claro', token: '$color-leather-light', hex: '#b8834f', mod: 'leather-light' },
+    { name: 'Cuero', token: '$color-leather', hex: '#8b5a2b', mod: 'leather' },
     { name: 'Crema', token: '$color-cream', hex: '#f4ecdc', mod: 'cream' },
     { name: 'Pergamino', token: '$color-parchment', hex: '#e9dcc3', mod: 'parchment' },
-    { name: 'Cromo', token: '$gradient-chrome', hex: 'gradiente', mod: 'chrome' },
+    { name: 'Burdeos', token: '$color-burgundy', hex: '#6d1f2a', mod: 'burgundy' },
     { name: 'Tinta', token: '$color-ink', hex: '#1c1a17', mod: 'ink' },
+    { name: 'Cromo', token: '$gradient-chrome', hex: 'gradiente', mod: 'chrome' },
   ];
   readonly spaces = [
     { token: '$space-1', value: '0.25rem', px: 4 }, { token: '$space-2', value: '0.5rem', px: 8 },

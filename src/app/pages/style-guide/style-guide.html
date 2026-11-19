@@ -21,11 +21,11 @@
 <section class="section guide" aria-labelledby="tipo-title">
   <h2 class="guide__heading" id="tipo-title">Tipografía</h2>
   <div class="type">
-    <p class="type__sample type__sample--h1">H1 - Playfair Display 3.5rem</p>
-    <p class="type__sample type__sample--h2">H2 - Playfair Display 2.5rem</p>
-    <p class="type__sample type__sample--h3">H3 - Playfair Display 1.75rem</p>
-    <p class="type__sample type__sample--body">Cuerpo - Lora 1rem - Me encantan los coches clásicos</p>
-    <p class="type__sample type__sample--mono">Técnico - IBM Plex Mono - 09:30, 48 KM/H</p>
+    <p class="type__sample type__sample--h1">H1 - Playfair Display</p>
+    <p class="type__sample type__sample--h2">H2 - Playfair Display</p>
+    <p class="type__sample type__sample--h3">H3 - Playfair Display</p>
+    <p class="type__sample type__sample--mono">Técnico - IBM Plex Mono</p>
+    <p class="type__sample type__sample--body">Cuerpo - Lora 1rem</p>
   </div>
 </section>
 
@@ -35,9 +35,9 @@
   <div class="buttons">
     @for (v of variants; track v) {
       <div class="buttons__row">
-        <code class="buttons__label">.button--{{ v }}</code>
         <button type="button" [class]="'button button--' + v">Normal</button>
         <button type="button" [class]="'button button--' + v" disabled>Deshabilitado</button>
+        <code class="buttons__label">.button--{{ v }}</code>
       </div>
     }
   </div>
@@ -48,9 +48,11 @@
   <div class="components">
     <article class="components__item">
       <h3 class="components__title">Badges</h3>
-      <span class="badge">Por defecto</span>
-      <span class="badge badge--green">Verde</span>
-      <span class="badge badge--burgundy">Burdeos</span>
+      <div class="components__badges">
+          <span class="badge">Por defecto</span>
+          <span class="badge badge--green">Verde</span>
+          <span class="badge badge--burgundy">Burdeos</span>
+      </div>
     </article>
     <article class="components__item">
       <h3 class="components__title">Formulario</h3>
