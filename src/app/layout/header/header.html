@@ -1,1 +1,42 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__inner">
+
+    <a routerLink="/" class="header__brand" (click)="close()">
+      <img class="header__emblem" src="/assets/img/logo.png" alt="Classic Motor"/>
+      <span class="header__name">Classic Motor <small class="header__edition">I Rally 2027</small></span>
+    </a>
+
+    <button class="header__toggle" type="button"
+      [attr.aria-expanded]="open()"
+      aria-controls="menu-principal"
+      (click)="toggle()">
+      <span class="header__toggle-label">{{ open() ? 'Cerrar' : 'Menú' }}</span>
+    </button>
+
+    <nav class="nav" [class.nav--open]="open()" id="menu-principal" aria-label="Navegación principal">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a class="nav__link" routerLink="/" routerLinkActive="nav__link--active"
+            [routerLinkActiveOptions]="{ exact: true }" (click)="close()">Inicio</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" routerLink="/catalogo" routerLinkActive="nav__link--active"
+            (click)="close()">Catálogo</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" routerLink="/itinerario" routerLinkActive="nav__link--active"
+            (click)="close()">Itinerario</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" routerLink="/inscripcion" routerLinkActive="nav__link--active"
+            (click)="close()">Inscripción</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link" routerLink="/guia-estilo" routerLinkActive="nav__link--active"
+            (click)="close()">Guía de estilo</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
