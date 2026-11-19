@@ -28,7 +28,7 @@
 
   @include mq($bp-desktop) {
     &__heading {
-      max-width: 80%;
+      max-width: 100%;
     }
   }
 }
