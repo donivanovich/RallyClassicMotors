@@ -59,9 +59,33 @@
     cursor: pointer;
   }
 
+  @include mq($bp-mobile) {
+    &__brand {
+      gap: $space-4;
+    }
+
+    &__name {
+      font-size: $font-size-xl;
+    }
+  }
+
   @include mq($bp-tablet) {
     &__toggle {
       display: none;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &__inner {
+      padding-block: $space-4;
+    }
+
+    &__brand {
+      gap: $space-6;
+    }
+
+    &__name {
+      font-size: $font-size-2xl;
     }
   }
 }
@@ -105,6 +129,16 @@
     border-bottom-color: $color-leather-light;
   }
 
+  @include mq($bp-mobile) {
+    &__list {
+      gap: $space-2;
+    }
+
+    &__link {
+      padding-inline: $space-4;
+    }
+  }
+
   @include mq($bp-tablet) {
     display: block;
     width: auto;
@@ -112,6 +146,12 @@
     &__list {
       flex-direction: row;
       padding: 0;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &__list {
+      gap: $space-4;
     }
   }
 }

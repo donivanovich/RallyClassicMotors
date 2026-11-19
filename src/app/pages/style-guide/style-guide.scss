@@ -4,8 +4,33 @@
 .guide {
   padding-top: 0;
 
-  &__heading { font-size: $font-size-xl; border-bottom: 2px solid $color-leather; padding-bottom: $space-2; }
-  &__note { color: $color-ink-soft; }
+  &__heading {
+    font-size: $font-size-xl;
+    border-bottom: 2px solid $color-leather;
+    padding-bottom: $space-2;
+  }
+
+  &__note {
+    color: $color-ink-soft;
+  }
+
+  @include mq($bp-mobile) {
+    &__heading {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  @include mq($bp-tablet) {
+    &__heading {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &__heading {
+      max-width: 80%;
+    }
+  }
 }
 
 .palette {
@@ -14,10 +39,21 @@
   margin: 0;
   display: grid;
   gap: $space-4;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
 
-  &__item { display: flex; flex-direction: column; gap: $space-1; }
-  &__swatch { display: block; height: 96px; border: $border-thin; border-radius: $radius-md; }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+  }
+
+  &__swatch {
+    display: block;
+    height: 96px;
+    border: $border-thin;
+    border-radius: $radius-md;
+  }
+
   &__swatch--green { background: $color-racing-green; }
   &__swatch--green-dark { background: $color-racing-green-dark; }
   &__swatch--burgundy { background: $color-burgundy; }
@@ -27,10 +63,24 @@
   &__swatch--parchment { background: $color-parchment; }
   &__swatch--chrome { background: $gradient-chrome; }
   &__swatch--ink { background: $color-ink; }
-  &__token { font-family: $font-mono; font-size: $font-size-xs; color: $color-ink-soft; }
 
-  @include mq($bp-tablet) { grid-template-columns: repeat(3, 1fr); }
-  @include mq($bp-desktop) { grid-template-columns: repeat(5, 1fr); }
+  &__token {
+    font-family: $font-mono;
+    font-size: $font-size-xs;
+    color: $color-ink-soft;
+  }
+
+  @include mq($bp-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq($bp-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq($bp-desktop) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .type {
@@ -44,9 +94,17 @@
   &__sample--body { max-width: 60ch; }
   &__sample--mono { font-family: $font-mono; letter-spacing: 0.1em; }
 
+  @include mq($bp-mobile) {
+    gap: $space-6;
+  }
+
   @include mq($bp-tablet) {
     &__sample--h1 { font-size: $font-size-3xl; }
     &__sample--h2 { font-size: $font-size-2xl; }
+  }
+
+  @include mq($bp-desktop) {
+    gap: $space-8;
   }
 }
 
@@ -56,6 +114,18 @@
 
   &__row { display: flex; flex-wrap: wrap; align-items: center; gap: $space-4; }
   &__label { font-family: $font-mono; font-size: $font-size-sm; min-width: 180px; }
+
+  @include mq($bp-mobile) {
+    gap: $space-6;
+  }
+
+  @include mq($bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq($bp-desktop) {
+    gap: $space-8;
+  }
 }
 
 .components {
@@ -70,5 +140,15 @@
   &__space { display: flex; align-items: center; gap: $space-3; font-size: $font-size-xs; }
   &__bar { display: block; height: 12px; background: $color-leather; }
 
-  @include mq($bp-tablet) { grid-template-columns: repeat(3, 1fr); }
+  @include mq($bp-mobile) {
+    gap: $space-8;
+  }
+
+  @include mq($bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq($bp-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

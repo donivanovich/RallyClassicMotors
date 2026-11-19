@@ -9,8 +9,9 @@
   &__inner {
     @include container;
     display: grid;
-    gap: $space-8;
-    padding-block: $space-12;
+    grid-template-columns: 1fr;
+    gap: $space-6;
+    padding-block: $space-8;
   }
 
   &__col {
@@ -42,9 +43,24 @@
     border-top: 1px solid $color-ink-soft;
   }
 
+  @include mq($bp-mobile) {
+    &__inner {
+      gap: $space-8;
+      padding-block: $space-12;
+    }
+  }
+
   @include mq($bp-tablet) {
     &__inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &__inner {
       grid-template-columns: repeat(3, 1fr);
+      gap: $space-12;
+      padding-block: $space-16;
     }
   }
 }

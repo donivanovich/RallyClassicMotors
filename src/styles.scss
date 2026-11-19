@@ -43,16 +43,42 @@ a { color: $color-racing-green; }
 //section
 .section {
   @include container;
-  padding-block: $space-12;
+  padding-block: $space-8;
 
-  @include mq($bp-desktop) { padding-block: $space-16; }
+  &__eyebrow {
+    @include eyebrow;
+    color: $color-leather;
+    margin: 0 0 $space-2;
+  }
 
-  &__eyebrow { @include eyebrow; color: $color-leather; margin: 0 0 $space-2; }
-  &__title { font-size: $font-size-xl; color: $color-racing-green-dark; }
-  &__lead { max-width: 60ch; color: $color-ink-soft; }
+  &__title {
+    font-size: $font-size-xl;
+    color: $color-racing-green-dark;
+  }
+
+  &__lead {
+    max-width: 60ch;
+    color: $color-ink-soft;
+  }
+
+  @include mq($bp-mobile) {
+    padding-block: $space-12;
+  }
 
   @include mq($bp-tablet) {
-    &__title { font-size: $font-size-2xl; }
+    padding-block: $space-16;
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    padding-block: calc($space-16 + $space-8);
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
   }
 }
 
