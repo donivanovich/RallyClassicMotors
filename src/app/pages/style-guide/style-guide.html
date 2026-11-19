@@ -1,1 +1,71 @@
-<p>style-guide works!</p>
+<section class="section" aria-labelledby="guia-title">
+  <p class="section__eyebrow">Diseño</p>
+  <h1 class="section__title" id="guia-title">Guía de estilo</h1>
+  <p class="section__lead">Tokens definidos en _variables.scss y componentes base de la web</p>
+</section>
+
+<section class="section guide" aria-labelledby="paleta-title">
+  <h2 class="guide__heading" id="paleta-title">Paleta de Colores</h2>
+  <ul class="palette">
+    @for (c of colors; track c.token) {
+      <li class="palette__item">
+        <span class="palette__swatch" [class]="'palette__swatch palette__swatch--' + c.mod" aria-hidden="true"></span>
+        <strong class="palette__name">{{ c.name }}</strong>
+        <code class="palette__token">{{ c.token }}</code>
+        <code class="palette__token">{{ c.hex }}</code>
+      </li>
+    }
+  </ul>
+</section>
+
+<section class="section guide" aria-labelledby="tipo-title">
+  <h2 class="guide__heading" id="tipo-title">Tipografía</h2>
+  <div class="type">
+    <p class="type__sample type__sample--h1">H1 - Playfair Display 3.5rem</p>
+    <p class="type__sample type__sample--h2">H2 - Playfair Display 2.5rem</p>
+    <p class="type__sample type__sample--h3">H3 - Playfair Display 1.75rem</p>
+    <p class="type__sample type__sample--body">Cuerpo - Lora 1rem - Me encantan los coches clásicos</p>
+    <p class="type__sample type__sample--mono">Técnico - IBM Plex Mono - 09:30, 48 KM/H</p>
+  </div>
+</section>
+
+<section class="section guide" aria-labelledby="botones-title">
+  <h2 class="guide__heading" id="botones-title">Botones</h2>
+  <p class="guide__note">Pasa el ratón para ver hover, pulsa para activarlo y navega con Tab para el focus</p>
+  <div class="buttons">
+    @for (v of variants; track v) {
+      <div class="buttons__row">
+        <code class="buttons__label">.button--{{ v }}</code>
+        <button type="button" [class]="'button button--' + v">Normal</button>
+        <button type="button" [class]="'button button--' + v" disabled>Deshabilitado</button>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section guide" aria-labelledby="comp-title">
+  <h2 class="guide__heading" id="comp-title">Componentes base</h2>
+  <div class="components">
+    <article class="components__item">
+      <h3 class="components__title">Badges</h3>
+      <span class="badge">Por defecto</span>
+      <span class="badge badge--green">Verde</span>
+      <span class="badge badge--burgundy">Burdeos</span>
+    </article>
+    <article class="components__item">
+      <h3 class="components__title">Formulario</h3>
+      <label class="components__label" for="demo">Etiqueta</label>
+      <input class="components__input" id="demo" placeholder="Escribe algo…" [value]="demoValue()" (input)="demoValue.set($any($event.target).value)">
+      <p class="components__echo">Valor: {{ demoValue() || '...' }}</p>
+    </article>
+    <article class="components__item">
+      <h3 class="components__title">Espacios</h3>
+      @for (s of spaces; track s.token) {
+        <div class="components__space">
+          <span class="components__bar" [style.width.px]="s.px * 3"></span>
+          <code>{{ s.token }} = {{ s.value }}</code>
+        </div>
+      }
+    </article>
+  </div>
+</section>
