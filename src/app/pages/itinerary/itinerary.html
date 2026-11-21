@@ -1,1 +1,39 @@
-<p>itinerary works!</p>
+<section class="section" aria-labelledby="programa-title">
+  <p class="section__eyebrow">Sábado 15 de mayo de 2027</p>
+  <h1 class="section__title" id="programa-title">Itinerario y programa oficial</h1>
+  <p class="section__lead">83 kilómetros de carreteras de montaña divididos en tres etapas.</p>
+
+  <div class="itinerary">
+    <ol class="timeline">
+      @for (a of schedule(); track a.time) {
+        <li class="timeline__item">
+          <time class="timeline__time">{{ a.time }}</time>
+          <article class="timeline__content">
+            <h2 class="timeline__title">{{ a.title }}
+              @if (a.stage) { <span class="badge badge--green">{{ a.stage }}</span> }
+            </h2>
+            <p class="timeline__text">{{ a.description }}</p>
+          </article>
+        </li>
+      }
+    </ol>
+
+    <aside class="route" aria-labelledby="ruta-title">
+      <h2 class="route__title" id="ruta-title">Mapa de la ruta</h2>
+      <div class="map">
+        <iframe class="map__frame" title="Mapa de la ruta del rally entre Madrid, Navacerrada y Rascafría"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-4.10%2C40.38%2C-3.65%2C40.92&amp;layer=mapnik"
+          loading="lazy"></iframe>
+      </div>
+      <ul class="route__list">
+        @for (s of stages; track s.code) {
+          <li class="route__stage">
+            <span class="route__code">{{ s.code }}</span>
+            <span class="route__name">{{ s.name }}</span>
+            <span class="route__km">{{ s.km }} km</span>
+          </li>
+        }
+      </ul>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.itinerary {
+  display: grid;
+  gap: $space-12;
+  margin-top: $space-16;
+
+  @include mq($bp-desktop) { grid-template-columns: 1.2fr 1fr; }
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid $color-leather;
+
+  &__item { display: grid; gap: $space-2; position: relative; padding: 0 0 $space-8 $space-6; }
+
+  &__item::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $gradient-chrome;
+    border: 2px solid $color-racing-green;
+  }
+
+  &__time { font-family: $font-mono; font-weight: 500; color: $color-burgundy; }
+  &__title { font-size: $font-size-lg; margin: 0; display: flex; gap: $space-2; align-items: center; flex-wrap: wrap; }
+  &__text { margin: $space-1 0 0; color: $color-ink-soft; }
+
+  @include mq($bp-tablet) {
+    &__item { grid-template-columns: 80px 1fr; }
+  }
+}
+
+.route {
+  &__title { font-size: $font-size-xl; }
+  &__list { list-style: none; padding: 0; margin: $space-6 0 0; display: grid; gap: $space-2; }
+
+  &__stage {
+    display: flex;
+    align-items: center;
+    gap: $space-4;
+    padding: $space-3 $space-4;
+    background: $color-white;
+    border: $border-thin;
+  }
+
+  &__code { font-family: $font-mono; font-weight: 500; color: $color-cream; background: $color-racing-green; padding: $space-1 $space-2; }
+  &__name { flex: 1; }
+  &__km { font-family: $font-mono; color: $color-leather; }
+}

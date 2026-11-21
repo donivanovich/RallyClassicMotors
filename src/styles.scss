@@ -62,11 +62,11 @@ a { color: $color-racing-green; }
   }
 
   @include mq($bp-mobile) {
-    padding-block: $space-12;
+    padding-block: $space-6;
   }
 
   @include mq($bp-tablet) {
-    padding-block: $space-16;
+    padding-block: $space-8;
 
     &__title {
       font-size: $font-size-2xl;
@@ -74,7 +74,7 @@ a { color: $color-racing-green; }
   }
 
   @include mq($bp-desktop) {
-    padding-block: calc($space-16 + $space-8);
+    padding-block: $space-12;
 
     &__title {
       font-size: $font-size-3xl;
