@@ -1,0 +1,169 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 80vh;
+  color: $color-cream;
+  overflow: hidden;
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba($color-ink, 0.2) 0%,
+      rgba($color-racing-green-dark, 0.9) 100%
+    );
+  }
+
+  &__content {
+    @include container;
+    position: relative;
+    z-index: 1;
+    align-self: end;
+    padding-block: $space-8;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+    color: $color-leather-light;
+    margin: 0 0 $space-3;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    max-width: 18ch;
+  }
+
+  &__lead {
+    max-width: 50ch;
+    font-size: $font-size-base;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+    margin-top: $space-6;
+  }
+
+  &__ghost {
+    color: $color-cream;
+    border-color: $color-cream;
+  }
+
+  @include mq($bp-mobile) {
+    min-height: 75vh;
+
+    &__content {
+      padding-block: $space-12;
+    }
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+
+    &__lead {
+      font-size: $font-size-lg;
+    }
+  }
+
+  @include mq($bp-tablet) {
+    min-height: 80vh;
+
+    &__title {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    min-height: 85vh;
+
+    &__content {
+      padding-block: $space-16;
+    }
+
+    &__title {
+      font-size: 4.5rem;
+    }
+  }
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+  margin-bottom: $space-8;
+
+  &__card {
+    background: $color-white;
+    border: $border-thin;
+    box-shadow: $shadow-card;
+  }
+
+  &__image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__body {
+    padding: $space-4;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    margin: $space-2 0;
+  }
+
+  &__meta {
+    margin: 0;
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $color-ink-soft;
+  }
+
+  @include mq($bp-mobile) {
+    gap: $space-6;
+  }
+
+  @include mq($bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq($bp-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-8;
+  }
+}
+
+.location {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+  align-items: center;
+
+  @include mq($bp-mobile) {
+    gap: $space-8;
+  }
+
+  @include mq($bp-tablet) {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  @include mq($bp-desktop) {
+    grid-template-columns: 1fr 1.75fr;
+    gap: $space-12;
+  }
+}

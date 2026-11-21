@@ -1,1 +1,45 @@
-<p>home works!</p>
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero__image" src="cars/hero.jpg" alt="Fila de coches clásicos liderada por un descapotable verde por una carretera de montaña al atardecer" width="1600" height="912">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Sábado 15 de mayo de 2027 · Sierra de Madrid</p>
+    <h1 class="hero__title" id="hero-title">I Rally &amp; Concentración Histórica Classic Motor</h1>
+    <p class="hero__lead">Una jornada de tranquilidad, elegancia y coches clásicos por las carreteras más bonitas de la sierra.</p>
+    <div class="hero__actions">
+      <a class="button button--chrome" routerLink="/inscripcion">Inscribir mi vehículo</a>
+      <a class="button button--outline hero__ghost" routerLink="/itinerario">Ver itinerario</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="destacados-title">
+  <p class="section__eyebrow">Clásicos</p>
+  <h2 class="section__title" id="destacados-title">Vehículos destacados</h2>
+  <div class="featured">
+    @for (v of featured(); track v.id) {
+      <article class="featured__card">
+        <img class="featured__image" [src]="v.image" [alt]="v.alt" loading="lazy" width="944" height="704">
+        <div class="featured__body">
+          <span class="badge badge--green">{{ v.category }}</span>
+          <h3 class="featured__title">{{ v.brand }} {{ v.model }}</h3>
+          <p class="featured__meta">{{ v.year }} · {{ v.power }} CV · {{ v.country }}</p>
+        </div>
+      </article>
+    } @empty {
+      <p>Cargando vehículos…</p>
+    }
+  </div>
+  <a class="button button--primary" routerLink="/catalogo">Ver catálogo completo</a>
+</section>
+
+<section class="section location" aria-labelledby="ubicacion-title">
+  <div class="location__text">
+    <p class="section__eyebrow">Punto de encuentro</p>
+    <h2 class="section__title" id="ubicacion-title">Plaza Mayor de Madrid</h2>
+    <p class="section__lead">Espera de participantes y verificaciones técnicas a partir de las 08:00. Aparcamiento reservado solo para vehículos inscritos.</p>
+  </div>
+  <div class="map location__map">
+    <iframe class="map__frame" title="Mapa del punto de encuentro en la Plaza Mayor de Madrid"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-3.7113%2C40.4128%2C-3.7028%2C40.4174&amp;layer=mapnik&amp;marker=40.4153%2C-3.7074"
+      loading="lazy"></iframe>
+  </div>
+</section>
