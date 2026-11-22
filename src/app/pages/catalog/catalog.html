@@ -1,1 +1,76 @@
-<p>catalog works!</p>
+<section class="section" aria-labelledby="catalogo-title">
+  <p class="section__eyebrow">Participantes inscritos</p>
+  <h1 class="section__title" id="catalogo-title">Catálogo de vehículos</h1>
+  <p class="section__lead">Filtra la parrilla por categoría, año o nombre y consulta la ficha técnica de cada automóvil.</p>
+
+  <form class="filters" role="search" aria-label="Filtrar vehículos" (submit)="$event.preventDefault()">
+    <div class="filters__field">
+      <label class="filters__label" for="buscar">Buscar</label>
+      <input class="filters__input" id="buscar" type="search" placeholder="Marca o modelo" [value]="search()" (input)="onSearch($event)">
+    </div>
+    <div class="filters__field">
+      <label class="filters__label" for="anio">Fabricado hasta: <strong>{{ maxYear() }}</strong></label>
+      <input class="filters__range" id="anio" type="range" min="1920" max="1980" step="1" [value]="maxYear()" (input)="onYear($event)">
+    </div>
+    <div class="filters__field">
+      <label class="filters__label" for="orden">Ordenar</label>
+      <select class="filters__input" id="orden" [value]="sort()" (change)="onSort($event)">
+        <option value="year-asc">Año (más antiguo)</option>
+        <option value="year-desc">Año (más reciente)</option>
+        <option value="power-desc">Potencia</option>
+      </select>
+    </div>
+    <fieldset class="filters__chips">
+      <legend class="filters__label">Categoría</legend>
+      <button type="button" class="chip" [class.chip--active]="category() === 'Todas'" [attr.aria-pressed]="category() === 'Todas'" (click)="onCategory('Todas')">Todas</button>
+      @for (c of categories; track c) {
+        <button type="button" class="chip" [class.chip--active]="category() === c" [attr.aria-pressed]="category() === c" (click)="onCategory(c)">{{ c }}</button>
+      }
+    </fieldset>
+  </form>
+
+  <p class="catalog__count" aria-live="polite">Mostrando {{ filtered().length }} de {{ total() }} vehículos</p>
+
+  <div class="catalog">
+    @for (v of filtered(); track v.id) {
+      <article class="card">
+        <img class="card__image" [src]="v.image" [alt]="v.alt" loading="lazy" width="944" height="704">
+        <div class="card__body">
+          <span class="badge">{{ v.category }}</span>
+          <h2 class="card__title">{{ v.brand }} {{ v.model }}</h2>
+          <dl class="card__specs">
+            <div class="card__spec"><dt>Año</dt><dd>{{ v.year }}</dd></div>
+            <div class="card__spec"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
+          </dl>
+          <button type="button" class="button button--outline" (click)="open(v)">Ficha técnica</button>
+        </div>
+      </article>
+    } @empty {
+      <div class="catalog__empty">
+        <p>No hay vehículos que coincidan con los filtros.</p>
+        <button type="button" class="button button--secondary" (click)="reset()">Restablecer filtros</button>
+      </div>
+    }
+  </div>
+</section>
+
+@if (selected(); as v) {
+  <div class="sheet" (click)="close()">
+    <article class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="ficha-title" (click)="$event.stopPropagation()">
+      <img class="sheet__image" [src]="v.image" [alt]="v.alt">
+      <div class="sheet__body">
+        <span class="badge badge--burgundy">{{ v.category }}</span>
+        <h2 class="sheet__title" id="ficha-title">{{ v.brand }} {{ v.model }}</h2>
+        <dl class="sheet__specs">
+          <div class="sheet__row"><dt>Año</dt><dd>{{ v.year }}</dd></div>
+          <div class="sheet__row"><dt>Categoría</dt><dd>{{ v.category }}</dd></div>
+          <div class="sheet__row"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
+          <div class="sheet__row"><dt>Origen</dt><dd>{{ v.country }}</dd></div>
+        </dl>
+        <h3 class="sheet__subtitle">Historial</h3>
+        <p>{{ v.history }}</p>
+        <button type="button" class="button button--primary" (click)="close()">Cerrar ficha</button>
+      </div>
+    </article>
+  </div>
+}
