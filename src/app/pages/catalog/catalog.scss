@@ -20,15 +20,23 @@
     font: inherit;
   }
 
-  &__range { accent-color: $color-racing-green; }
-  &__chips { display: flex; flex-wrap: wrap; gap: $space-2; border: 0; padding: 0; margin: 0; }
+  &__range { accent-color: $color-racing-green; margin-block: auto; }
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-2;
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    .filters__label { margin-bottom: $space-3; }
+  }
 
   @include mq($bp-mobile) {}
 
   @include mq($bp-tablet) {
-    grid-template-columns: repeat(3, 1fr);
-
-    &__chips { grid-column: 1 / -1; }
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @include mq($bp-desktop) {}

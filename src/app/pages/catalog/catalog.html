@@ -9,10 +9,6 @@
       <input class="filters__input" id="buscar" type="search" placeholder="Marca o modelo" [value]="search()" (input)="onSearch($event)">
     </div>
     <div class="filters__field">
-      <label class="filters__label" for="anio">Fabricado hasta: <strong>{{ maxYear() }}</strong></label>
-      <input class="filters__range" id="anio" type="range" min="1920" max="1980" step="1" [value]="maxYear()" (input)="onYear($event)">
-    </div>
-    <div class="filters__field">
       <label class="filters__label" for="orden">Ordenar</label>
       <select class="filters__input" id="orden" [value]="sort()" (change)="onSort($event)">
         <option value="year-asc">Año (más antiguo)</option>
@@ -27,6 +23,10 @@
         <button type="button" class="chip" [class.chip--active]="category() === c" [attr.aria-pressed]="category() === c" (click)="onCategory(c)">{{ c }}</button>
       }
     </fieldset>
+    <div class="filters__field">
+      <label class="filters__label" for="anio">Fabricado hasta: <strong>{{ maxYear() }}</strong></label>
+      <input class="filters__range" id="anio" type="range" min="1920" max="1980" step="1" [value]="maxYear()" (input)="onYear($event)">
+    </div>
   </form>
 
   <p class="catalog__count" aria-live="polite">Mostrando {{ filtered().length }} de {{ total() }} vehículos</p>
