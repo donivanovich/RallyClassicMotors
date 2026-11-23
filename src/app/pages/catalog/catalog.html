@@ -36,11 +36,11 @@
       <article class="card">
         <img class="card__image" [src]="v.image" [alt]="v.alt" loading="lazy" width="944" height="704">
         <div class="card__body">
-          <span class="badge">{{ v.category }}</span>
-          <h2 class="card__title">{{ v.brand }} {{ v.model }}</h2>
+          <h2 class="card__title" [title]="v.brand + ' ' + v.model">{{ v.brand }} {{ v.model }}</h2>
           <dl class="card__specs">
             <div class="card__spec"><dt>Año</dt><dd>{{ v.year }}</dd></div>
             <div class="card__spec"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
+            <div class="card__spec"><dt>Categoría</dt><dd>{{ v.category }}</dd></div>
           </dl>
           <button type="button" class="button button--outline" (click)="open(v)">Ficha técnica</button>
         </div>
