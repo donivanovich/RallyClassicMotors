@@ -64,9 +64,24 @@
           @if (hasError('category')) { <p class="form__error" id="category-err">Selecciona una categoría.</p> }
         </div>
         <div class="form__field">
-          <label class="form__label" for="plate">Matrícula *</label>
-          <input class="form__input" [class.form__input--error]="hasError('plate')" id="plate" formControlName="plate" [attr.aria-invalid]="hasError('plate')" aria-describedby="plate-err">
-          @if (hasError('plate')) { <p class="form__error" id="plate-err">Indica la matrícula.</p> }
+          <label class="form__label" for="power">Caballos *</label>
+          <input class="form__input" [class.form__input--error]="hasError('power')" id="power" type="number" inputmode="numeric" formControlName="power" [attr.aria-invalid]="hasError('power')" aria-describedby="power-err">
+          @if (hasError('power')) { <p class="form__error" id="power-err">Indica los caballos (solo números).</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="country">País *</label>
+          <input class="form__input" [class.form__input--error]="hasError('country')" id="country" formControlName="country" [attr.aria-invalid]="hasError('country')" aria-describedby="country-err">
+          @if (hasError('country')) { <p class="form__error" id="country-err">Indica el país.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="image">Imagen *</label>
+          <input class="form__input" [class.form__input--error]="hasError('image')" id="image" formControlName="image" [attr.aria-invalid]="hasError('image')" aria-describedby="image-err">
+          @if (hasError('image')) { <p class="form__error" id="image-err">Indica la imagen.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="description">Descripción *</label>
+          <input class="form__input" [class.form__input--error]="hasError('description')" id="description" formControlName="description" [attr.aria-invalid]="hasError('description')" aria-describedby="description-err">
+          @if (hasError('description')) { <p class="form__error" id="description-err">Indica una descripción.</p> }
         </div>
       </fieldset>
 

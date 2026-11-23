@@ -43,8 +43,6 @@
   }
 
   @include mq($bp-desktop) {
-    grid-template-columns: repeat(2, 1fr);
-
-    &__check, &__error, &__actions { grid-column: 1 / -1; }
+    &__group { grid-template-columns: repeat(4, 1fr); }
   }
 }

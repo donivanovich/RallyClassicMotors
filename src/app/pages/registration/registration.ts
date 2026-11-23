@@ -25,7 +25,10 @@ export class Registration {
     model: ['', [Validators.required, Validators.maxLength(40)]],
     year: ['', [Validators.required, yearRange]],
     category: ['', Validators.required],
-    plate: ['', [Validators.required, Validators.maxLength(12)]],
+    power: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.min(1)]],
+    country: ['', [Validators.required, Validators.maxLength(40)]],
+    image: ['', Validators.required],
+    description: ['', Validators.required],
     terms: [false, Validators.requiredTrue],
   });
 
