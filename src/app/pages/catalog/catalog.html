@@ -1,7 +1,7 @@
 <section class="section" aria-labelledby="catalogo-title">
-  <p class="section__eyebrow">Participantes inscritos</p>
+  <p class="section__eyebrow">Participantes</p>
   <h1 class="section__title" id="catalogo-title">Catálogo de vehículos</h1>
-  <p class="section__lead">Filtra la parrilla por categoría, año o nombre y consulta la ficha técnica de cada automóvil.</p>
+  <p class="section__lead">Descubre estas joyas clásicas y ven a verlas en persona.</p>
 
   <form class="filters" role="search" aria-label="Filtrar vehículos" (submit)="$event.preventDefault()">
     <div class="filters__field">
@@ -42,7 +42,7 @@
             <div class="card__spec"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
             <div class="card__spec"><dt>Categoría</dt><dd>{{ v.category }}</dd></div>
           </dl>
-          <button type="button" class="button button--outline" (click)="open(v)">Ficha técnica</button>
+          <button type="button" class="button button--outline" (click)="open(v)">Ver</button>
         </div>
       </article>
     } @empty {
