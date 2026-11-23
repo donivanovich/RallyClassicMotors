@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.form {
+  display: grid;
+  gap: $space-8;
+  margin-top: $space-8;
+
+  &__group {
+    display: grid;
+    gap: $space-4;
+    margin: 0;
+    padding: $space-6;
+    border: 1px solid $color-leather;
+    background: $color-white;
+  }
+
+  &__legend { padding: 0 $space-2; font-family: $font-display; font-size: $font-size-lg; color: $color-racing-green-dark; }
+  &__field { display: flex; flex-direction: column; gap: $space-1; }
+  &__label { @include eyebrow; color: $color-ink-soft; }
+
+  &__input {
+    padding: $space-3;
+    border: $border-thin;
+    border-radius: $radius-sm;
+    background: $color-cream;
+    font: inherit;
+
+    &:focus-visible { border-color: $color-racing-green; }
+  }
+
+  &__input--error { border-color: $color-error; }
+  &__error { margin: 0; color: $color-error; font-size: $font-size-sm; }
+  &__check { display: flex; align-items: flex-start; gap: $space-2; }
+  &__checkbox { accent-color: $color-racing-green; width: 20px; height: 20px; }
+  &__actions { display: flex; flex-wrap: wrap; gap: $space-4; }
+
+  &__success { margin-top: $space-8; padding: $space-8; background: $color-white; border-left: 6px solid $color-success; }
+  &__success-title { color: $color-success; }
+
+  @include mq($bp-tablet) {
+    &__group { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @include mq($bp-desktop) {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__check, &__error, &__actions { grid-column: 1 / -1; }
+  }
+}

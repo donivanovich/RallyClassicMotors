@@ -1,1 +1,85 @@
-<p>registration works!</p>
+<section class="section" aria-labelledby="inscripcion-title">
+  <p class="section__eyebrow">Plazas limitadas · 60 vehículos</p>
+  <h1 class="section__title" id="inscripcion-title">Inscripción de participantes</h1>
+  <p class="section__lead">Admitidos vehículos fabricados entre 1900 y 1990. Los campos marcados con * son obligatorios.</p>
+
+  @if (submitted() && form.valid) {
+    <div class="form__success" role="status">
+      <h2 class="form__success-title">¡Inscripción recibida!</h2>
+      <p>Gracias, {{ form.controls.name.value }}. Te enviaremos la confirmación a {{ form.controls.email.value }}.</p>
+      <button type="button" class="button button--outline" (click)="reset()">Nueva inscripción</button>
+    </div>
+  } @else {
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <fieldset class="form__group">
+        <legend class="form__legend">Datos del piloto</legend>
+        <div class="form__field">
+          <label class="form__label" for="name">Nombre completo *</label>
+          <input class="form__input" [class.form__input--error]="hasError('name')" id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="hasError('name')" aria-describedby="name-err">
+          @if (hasError('name')) { <p class="form__error" id="name-err">Introduce entre 3 y 80 caracteres.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="email">Correo electrónico *</label>
+          <input class="form__input" [class.form__input--error]="hasError('email')" id="email" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="hasError('email')" aria-describedby="email-err">
+          @if (hasError('email')) { <p class="form__error" id="email-err">Introduce un correo válido.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="phone">Teléfono *</label>
+          <input class="form__input" [class.form__input--error]="hasError('phone')" id="phone" type="tel" formControlName="phone" autocomplete="tel" [attr.aria-invalid]="hasError('phone')" aria-describedby="phone-err">
+          @if (hasError('phone')) { <p class="form__error" id="phone-err">9 dígitos, empezando por 6, 7, 8 o 9.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="license">DNI *</label>
+          <input class="form__input" [class.form__input--error]="hasError('license')" id="license" formControlName="license" [attr.aria-invalid]="hasError('license')" aria-describedby="license-err">
+          @if (hasError('license')) { <p class="form__error" id="license-err">Formato: 8 números y una letra.</p> }
+        </div>
+      </fieldset>
+
+      <fieldset class="form__group">
+        <legend class="form__legend">Datos del vehículo</legend>
+        <div class="form__field">
+          <label class="form__label" for="brand">Marca *</label>
+          <input class="form__input" [class.form__input--error]="hasError('brand')" id="brand" formControlName="brand" [attr.aria-invalid]="hasError('brand')" aria-describedby="brand-err">
+          @if (hasError('brand')) { <p class="form__error" id="brand-err">Indica la marca.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="model">Modelo *</label>
+          <input class="form__input" [class.form__input--error]="hasError('model')" id="model" formControlName="model" [attr.aria-invalid]="hasError('model')" aria-describedby="model-err">
+          @if (hasError('model')) { <p class="form__error" id="model-err">Indica el modelo.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="year">Año de fabricación *</label>
+          <input class="form__input" [class.form__input--error]="hasError('year')" id="year" type="number" inputmode="numeric" formControlName="year" [attr.aria-invalid]="hasError('year')" aria-describedby="year-err">
+          @if (hasError('year')) { <p class="form__error" id="year-err">Debe estar entre 1900 y 1990.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="category">Categoría *</label>
+          <select class="form__input" [class.form__input--error]="hasError('category')" id="category" formControlName="category" [attr.aria-invalid]="hasError('category')" aria-describedby="category-err">
+            <option value="">Selecciona…</option>
+            <option>Pre-guerra</option>
+            <option>Clásico</option>
+            <option>Sport</option>
+            <option>Youngtimer</option>
+          </select>
+          @if (hasError('category')) { <p class="form__error" id="category-err">Selecciona una categoría.</p> }
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="plate">Matrícula *</label>
+          <input class="form__input" [class.form__input--error]="hasError('plate')" id="plate" formControlName="plate" [attr.aria-invalid]="hasError('plate')" aria-describedby="plate-err">
+          @if (hasError('plate')) { <p class="form__error" id="plate-err">Indica la matrícula.</p> }
+        </div>
+      </fieldset>
+
+      <div class="form__check">
+        <input class="form__checkbox" id="terms" type="checkbox" formControlName="terms" aria-describedby="terms-err">
+        <label for="terms">Acepto el reglamento del rally y la política de privacidad *</label>
+      </div>
+      @if (hasError('terms')) { <p class="form__error" id="terms-err">Debes aceptar el reglamento.</p> }
+
+      <div class="form__actions">
+        <button type="submit" class="button button--primary">Enviar inscripción</button>
+        <button type="button" class="button button--outline" (click)="reset()">Limpiar</button>
+      </div>
+    </form>
+  }
+</section>

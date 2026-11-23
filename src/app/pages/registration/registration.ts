@@ -1,9 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
+function yearRange(control: AbstractControl): ValidationErrors | null {
+  const y = Number(control.value);
+  if (!control.value) return null;
+  return y >= 1900 && y <= 1990 ? null : { yearRange: true };
+}
 @Component({
   selector: 'app-registration',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './registration.html',
   styleUrl: './registration.scss',
 })
-export class Registration {}
+export class Registration {
+  private fb = inject(FormBuilder);
+  readonly submitted = signal(false);
+
+  readonly form = this.fb.nonNullable.group({
+    name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]],
+    email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.required, Validators.pattern(/^[6-9]\d{8}$/)]],
+    license: ['', [Validators.required, Validators.pattern(/^\d{8}[A-Za-z]$/)]],
+    brand: ['', [Validators.required, Validators.maxLength(40)]],
+    model: ['', [Validators.required, Validators.maxLength(40)]],
+    year: ['', [Validators.required, yearRange]],
+    category: ['', Validators.required],
+    plate: ['', [Validators.required, Validators.maxLength(12)]],
+    terms: [false, Validators.requiredTrue],
+  });
+
+  hasError(field: keyof typeof this.form.controls): boolean {
+    const c = this.form.controls[field];
+    return c.invalid && (c.touched || this.submitted());
+  }
+
+  submit(): void {
+    this.submitted.set(true);
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    console.info('Inscripción enviada', this.form.getRawValue());
+  }
+
+  reset(): void { this.form.reset(); this.submitted.set(false); }
+}
