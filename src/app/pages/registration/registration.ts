@@ -1,5 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { CarService } from '../../core/car.service';
+import { CarCategory } from '../../core/car.model';
 
 function yearRange(control: AbstractControl): ValidationErrors | null {
   const y = Number(control.value);
@@ -15,6 +17,7 @@ function yearRange(control: AbstractControl): ValidationErrors | null {
 })
 export class Registration {
   private fb = inject(FormBuilder);
+  private carService = inject(CarService);
   readonly submitted = signal(false);
 
   readonly form = this.fb.nonNullable.group({
@@ -44,7 +47,19 @@ export class Registration {
       this.form.markAllAsTouched();
       return;
     }
-    console.info('Inscripción enviada', this.form.getRawValue());
+    const v = this.form.getRawValue();
+    this.carService.add({
+      brand: v.brand,
+      model: v.model,
+      year: Number(v.year),
+      category: v.category as CarCategory,
+      power: Number(v.power),
+      country: v.country,
+      image: v.image,
+      alt: `${v.brand} ${v.model}`,
+      featured: false,
+      history: v.description,
+    });
   }
 
   reset(): void { this.form.reset(); this.submitted.set(false); }

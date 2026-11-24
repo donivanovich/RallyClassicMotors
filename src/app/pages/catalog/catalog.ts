@@ -18,7 +18,7 @@ export class Catalog implements OnInit {
 
   readonly search = signal('');
   readonly category = signal<CarCategory | 'Todas'>('Todas');
-  readonly maxYear = signal(1980);
+  readonly maxYear = signal(1990);
   readonly sort = signal<SortKey>('year-asc');
   readonly selected = signal<Car | null>(null);
 
@@ -49,5 +49,5 @@ export class Catalog implements OnInit {
   onSort(e: Event): void { this.sort.set((e.target as HTMLSelectElement).value as SortKey); }
   open(v: Car): void { this.selected.set(v); }
   close(): void { this.selected.set(null); }
-  reset(): void { this.search.set(''); this.category.set('Todas'); this.maxYear.set(1980); this.sort.set('year-asc'); }
+  reset(): void { this.search.set(''); this.category.set('Todas'); this.maxYear.set(1990); this.sort.set('year-asc'); }
 }

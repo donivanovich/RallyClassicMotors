@@ -25,7 +25,7 @@
     </fieldset>
     <div class="filters__field">
       <label class="filters__label" for="anio">Fabricado hasta: <strong>{{ maxYear() }}</strong></label>
-      <input class="filters__range" id="anio" type="range" min="1920" max="1980" step="1" [value]="maxYear()" (input)="onYear($event)">
+      <input class="filters__range" id="anio" type="range" min="1900" max="1990" step="1" [value]="maxYear()" (input)="onYear($event)">
     </div>
   </form>
 
