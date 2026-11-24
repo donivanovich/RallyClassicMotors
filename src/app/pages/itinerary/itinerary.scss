@@ -29,7 +29,7 @@
     border: 2px solid $color-racing-green;
   }
 
-  &__time { font-family: $font-mono; font-weight: 500; color: $color-burgundy; }
+  &__time { font-family: $font-mono; font-weight: $font-weight-medium; color: $color-burgundy; }
   &__title { font-size: $font-size-lg; margin: 0; display: flex; gap: $space-2; align-items: center; flex-wrap: wrap; }
   &__text { margin: $space-1 0 0; color: $color-ink-soft; }
 
@@ -51,7 +51,7 @@
     border: $border-thin;
   }
 
-  &__code { font-family: $font-mono; font-weight: 500; color: $color-cream; background: $color-racing-green; padding: $space-1 $space-2; }
+  &__code { font-family: $font-mono; font-weight: $font-weight-medium; color: $color-cream; background: $color-racing-green; padding: $space-1 $space-2; }
   &__name { flex: 1; }
   &__km { font-family: $font-mono; color: $color-leather; }
 }
