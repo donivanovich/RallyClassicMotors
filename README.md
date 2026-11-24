@@ -18,7 +18,7 @@ Plataforma web oficial para **Classic Motor Club**, desarrollada como proyecto e
 
 - **Framework:** Angular 21 empleando exclusivamente **Standalone Components**.
 - **Enrutado:** Nativo con `provideRouter` y carga diferida (`loadComponent`) para las 5 vistas principales (`/`, `/catalogo`, `/itinerario`, `/inscripcion`, `/guia-estilo`).
-- **Estado Reactivo:** Gestión local con **Angular Signals** (`signal`, `computed`) para el filtrado dinámico en tiempo real del catálogo de vehículos consumiendo datos desde `src/mocks/cars.json`.
+- **Estado Reactivo:** Gestión local con **Angular Signals** (`signal`, `computed`) para el filtrado dinámico en tiempo real del catálogo de vehículos consumiendo datos desde `public/mocks/cars.json`.
 - **Estilos y Maquetación:** SCSS modular (`_variables.scss`, `_mixins.scss`), maquetación propia con **CSS Grid y Flexbox**, metodología **BEM pura** (máximo 3 niveles de anidamiento) y enfoque **Mobile-First** con puntos de ruptura en `375px`, `768px` y `1440px`.
 - **Accesibilidad (WCAG):** HTML5 semántico (`header`, `nav`, `main`, `section`, `article`, `footer`), `lang="es"`, enlace de salto al contenido (`.skip-link`), foco de teclado visible (`:focus-visible`) y atributos `alt` descriptivos.
 
@@ -34,7 +34,7 @@ Para el desarrollo de este proyecto se han empleado las siguientes herramientas 
    - ChatGPT y Gemini
 2. **Áreas del código donde prestaron asistencia:**
    - **Auditoría de requisitos y estructura:** Verificación del cumplimiento de la rúbrica técnica (accesibilidad WCAG, estructura BEM y organización de tokens en `_variables.scss`).
-   - **Datos de prueba (Mock JSON):** Apoyo en la redacción de descripciones históricas y fichas técnicas de los vehículos clásicos en `src/mocks/cars.json`.
+   - **Datos de prueba (Mock JSON):** Apoyo en la redacción de descripciones históricas y fichas técnicas de los vehículos clásicos en `public/mocks/cars.json`.
    - **Estilos:** Generación del estilos globales agradables con el usuario
    - **README:** Actualizaciones del README
 3. **Validaciones realizadas por el alumno:**
