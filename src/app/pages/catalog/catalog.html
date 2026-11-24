@@ -38,9 +38,9 @@
         <div class="card__body">
           <h2 class="card__title" [title]="v.brand + ' ' + v.model">{{ v.brand }} {{ v.model }}</h2>
           <dl class="card__specs">
-            <div class="card__spec"><dt>Año</dt><dd>{{ v.year }}</dd></div>
-            <div class="card__spec"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
-            <div class="card__spec"><dt>Categoría</dt><dd>{{ v.category }}</dd></div>
+            <div class="card__spec"><dt class="card__term">Año</dt><dd class="card__data">{{ v.year }}</dd></div>
+            <div class="card__spec"><dt class="card__term">Potencia</dt><dd class="card__data">{{ v.power }} CV</dd></div>
+            <div class="card__spec"><dt class="card__term">Categoría</dt><dd class="card__data">{{ v.category }}</dd></div>
           </dl>
           <button type="button" class="button button--outline" (click)="open(v)">Ver</button>
         </div>
@@ -62,10 +62,10 @@
         <span class="badge badge--burgundy">{{ v.category }}</span>
         <h2 class="sheet__title" id="ficha-title">{{ v.brand }} {{ v.model }}</h2>
         <dl class="sheet__specs">
-          <div class="sheet__row"><dt>Año</dt><dd>{{ v.year }}</dd></div>
-          <div class="sheet__row"><dt>Categoría</dt><dd>{{ v.category }}</dd></div>
-          <div class="sheet__row"><dt>Potencia</dt><dd>{{ v.power }} CV</dd></div>
-          <div class="sheet__row"><dt>Origen</dt><dd>{{ v.country }}</dd></div>
+          <div class="sheet__row"><dt class="sheet__term">Año</dt><dd class="sheet__data">{{ v.year }}</dd></div>
+          <div class="sheet__row"><dt class="sheet__term">Categoría</dt><dd class="sheet__data">{{ v.category }}</dd></div>
+          <div class="sheet__row"><dt class="sheet__term">Potencia</dt><dd class="sheet__data">{{ v.power }} CV</dd></div>
+          <div class="sheet__row"><dt class="sheet__term">Origen</dt><dd class="sheet__data">{{ v.country }}</dd></div>
         </dl>
         <h3 class="sheet__subtitle">Historial</h3>
         <p>{{ v.history }}</p>

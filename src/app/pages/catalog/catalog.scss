@@ -94,8 +94,8 @@
     text-overflow: ellipsis;
   }
   &__specs { display: flex; gap: $space-4; margin: 0 0 auto; font-family: $font-mono; font-size: $font-size-sm; }
-  &__spec dt { color: $color-leather; text-transform: uppercase; font-size: $font-size-xs; }
-  &__spec dd { margin: 0; }
+  &__term { color: $color-leather; text-transform: uppercase; font-size: $font-size-xs; }
+  &__data { margin: 0; }
 
   @include mq($bp-mobile) {}
 
@@ -128,8 +128,8 @@
   &__title { font-size: $font-size-xl; margin-top: $space-2; }
   &__subtitle { font-size: $font-size-lg; margin-top: $space-4; }
   &__specs { display: grid; grid-template-columns: 1fr 1fr; gap: $space-2; font-family: $font-mono; }
-  &__row dt { font-size: $font-size-xs; color: $color-leather; text-transform: uppercase; }
-  &__row dd { margin: 0; }
+  &__term { font-size: $font-size-xs; color: $color-leather; text-transform: uppercase; }
+  &__data { margin: 0; }
 
   @include mq($bp-mobile) {}
 
