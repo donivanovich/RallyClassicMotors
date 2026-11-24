@@ -42,7 +42,7 @@
             <div class="card__spec"><dt class="card__term">Potencia</dt><dd class="card__data">{{ v.power }} CV</dd></div>
             <div class="card__spec"><dt class="card__term">Categoría</dt><dd class="card__data">{{ v.category }}</dd></div>
           </dl>
-          <button type="button" class="button button--outline" (click)="open(v)">Ver</button>
+          <button type="button" class="button button--outline" (click)="open(v)">Ver Ficha</button>
         </div>
       </article>
     } @empty {
@@ -57,9 +57,8 @@
 @if (selected(); as v) {
   <div class="sheet" (click)="close()">
     <article class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="ficha-title" (click)="$event.stopPropagation()">
-      <img class="sheet__image" [src]="v.image" [alt]="v.alt">
+      <img class="sheet__image" [src]="v.image" [alt]="v.alt" width="944" height="704">
       <div class="sheet__body">
-        <span class="badge badge--burgundy">{{ v.category }}</span>
         <h2 class="sheet__title" id="ficha-title">{{ v.brand }} {{ v.model }}</h2>
         <dl class="sheet__specs">
           <div class="sheet__row"><dt class="sheet__term">Año</dt><dd class="sheet__data">{{ v.year }}</dd></div>

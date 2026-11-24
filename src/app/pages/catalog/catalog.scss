@@ -129,16 +129,16 @@
   &__panel {
     display: grid;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     max-height: 90vh;
     overflow: auto;
     background: $color-cream;
     border: 4px solid $color-leather;
   }
 
-  &__image { width: 100%; height: 100%; object-fit: cover; }
+  &__image { aspect-ratio: 4 / 3; width: 100%; height: 100%; object-fit: cover; }
   &__body { padding: $space-4; }
-  &__title { font-size: $font-size-xl; margin-top: $space-2; }
+  &__title { font-size: $font-size-xl; margin-top: 0; }
   &__subtitle { font-size: $font-size-lg; margin-top: $space-4; }
   &__specs { display: grid; grid-template-columns: 1fr 1fr; gap: $space-2; font-family: $font-mono; }
   &__term { font-size: $font-size-xs; color: $color-leather; text-transform: uppercase; }
@@ -151,7 +151,7 @@
   }
 
   @include mq($bp-tablet) {
-    &__panel { grid-template-columns: 1fr 1fr; }
+    &__panel { grid-template-columns: 1.35fr 1fr; }
   }
 
   @include mq($bp-desktop) {

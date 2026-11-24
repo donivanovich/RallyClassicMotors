@@ -107,9 +107,17 @@
   margin-bottom: $space-8;
 
   &__card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
     background: $color-white;
     border: $border-thin;
     box-shadow: $shadow-card;
+    transition: transform $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
   }
 
   &__image {
@@ -119,32 +127,61 @@
   }
 
   &__body {
-    padding: $space-4;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    padding: $space-3;
+    flex: 1;
   }
 
   &__title {
     font-size: $font-size-lg;
-    margin: $space-2 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  &__meta {
-    margin: 0;
+  &__specs {
+    display: flex;
+    gap: $space-4;
+    margin: 0 0 auto;
     font-family: $font-mono;
     font-size: $font-size-sm;
-    color: $color-ink-soft;
+  }
+
+  &__term {
+    color: $color-leather;
+    text-transform: uppercase;
+    font-size: $font-size-xs;
+  }
+
+  &__data {
+    margin: 0;
   }
 
   @include mq($bp-mobile) {
     gap: $space-6;
+
+    &__body {
+      padding: $space-4;
+    }
   }
 
   @include mq($bp-tablet) {
     grid-template-columns: repeat(2, 1fr);
+
+    &__specs {
+      gap: $space-6;
+    }
   }
 
   @include mq($bp-desktop) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: $space-8;
+    grid-template-columns: repeat(4, 1fr);
+
+    &__specs {
+      gap: $space-4;
+    }
   }
 }
 

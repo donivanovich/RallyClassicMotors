@@ -19,9 +19,12 @@
       <article class="featured__card">
         <img class="featured__image" [src]="v.image" [alt]="v.alt" loading="lazy" width="944" height="704">
         <div class="featured__body">
-          <span class="badge badge--green">{{ v.category }}</span>
-          <h3 class="featured__title">{{ v.brand }} {{ v.model }}</h3>
-          <p class="featured__meta">{{ v.year }} · {{ v.power }} CV · {{ v.country }}</p>
+          <h3 class="featured__title" [title]="v.brand + ' ' + v.model">{{ v.brand }} {{ v.model }}</h3>
+          <dl class="featured__specs">
+            <div class="featured__spec"><dt class="featured__term">Año</dt><dd class="featured__data">{{ v.year }}</dd></div>
+            <div class="featured__spec"><dt class="featured__term">Potencia</dt><dd class="featured__data">{{ v.power }} CV</dd></div>
+            <div class="featured__spec"><dt class="featured__term">Categoría</dt><dd class="featured__data">{{ v.category }}</dd></div>
+          </dl>
         </div>
       </article>
     } @empty {
