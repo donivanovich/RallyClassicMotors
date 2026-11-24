@@ -4,6 +4,7 @@ interface Activity { time: string; title: string; description: string; stage?: s
 
 @Component({
   selector: 'app-itinerary',
+  standalone: true,
   imports: [],
   templateUrl: './itinerary.html',
   styleUrl: './itinerary.scss',

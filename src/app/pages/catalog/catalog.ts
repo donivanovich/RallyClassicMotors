@@ -6,6 +6,7 @@ type SortKey = 'year-asc' | 'year-desc' | 'power-desc';
 
 @Component({
   selector: 'app-catalog',
+  standalone: true,
   imports: [],
   templateUrl: './catalog.html',
   styleUrl: './catalog.scss',

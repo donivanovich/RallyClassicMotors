@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-style-guide',
+  standalone: true,
   imports: [],
   templateUrl: './style-guide.html',
   styleUrl: './style-guide.scss',

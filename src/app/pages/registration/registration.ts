@@ -8,6 +8,7 @@ function yearRange(control: AbstractControl): ValidationErrors | null {
 }
 @Component({
   selector: 'app-registration',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './registration.html',
   styleUrl: './registration.scss',

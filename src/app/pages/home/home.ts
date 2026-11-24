@@ -4,6 +4,7 @@ import { CarService } from '../../core/car.service';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
