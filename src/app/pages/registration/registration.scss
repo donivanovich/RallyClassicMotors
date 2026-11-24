@@ -8,9 +8,9 @@
 
   &__group {
     display: grid;
-    gap: $space-4;
+    gap: $space-3;
     margin: 0;
-    padding: $space-6;
+    padding: $space-4;
     border: 1px solid $color-leather;
     background: $color-white;
   }
@@ -37,6 +37,10 @@
 
   &__success { margin-top: $space-8; padding: $space-8; background: $color-white; border-left: 6px solid $color-success; }
   &__success-title { color: $color-success; }
+
+  @include mq($bp-mobile) {
+    &__group { gap: $space-4; padding: $space-6; }
+  }
 
   @include mq($bp-tablet) {
     &__group { grid-template-columns: repeat(2, 1fr); }
