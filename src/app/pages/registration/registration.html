@@ -15,22 +15,22 @@
         <legend class="form__legend">Datos del piloto</legend>
         <div class="form__field">
           <label class="form__label" for="name">Nombre completo *</label>
-          <input class="form__input" [class.form__input--error]="hasError('name')" id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="hasError('name')" aria-describedby="name-err">
+          <input class="form__input" [class.form__input--error]="hasError('name')" id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="hasError('name')" [attr.aria-describedby]="hasError('name') ? 'name-err' : null">
           @if (hasError('name')) { <p class="form__error" id="name-err">Introduce entre 3 y 80 caracteres.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="email">Correo electrónico *</label>
-          <input class="form__input" [class.form__input--error]="hasError('email')" id="email" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="hasError('email')" aria-describedby="email-err">
+          <input class="form__input" [class.form__input--error]="hasError('email')" id="email" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="hasError('email')" [attr.aria-describedby]="hasError('email') ? 'email-err' : null">
           @if (hasError('email')) { <p class="form__error" id="email-err">Introduce un correo válido.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="phone">Teléfono *</label>
-          <input class="form__input" [class.form__input--error]="hasError('phone')" id="phone" type="tel" formControlName="phone" autocomplete="tel" [attr.aria-invalid]="hasError('phone')" aria-describedby="phone-err">
+          <input class="form__input" [class.form__input--error]="hasError('phone')" id="phone" type="tel" formControlName="phone" autocomplete="tel" [attr.aria-invalid]="hasError('phone')" [attr.aria-describedby]="hasError('phone') ? 'phone-err' : null">
           @if (hasError('phone')) { <p class="form__error" id="phone-err">9 dígitos, empezando por 6, 7, 8 o 9.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="license">DNI *</label>
-          <input class="form__input" [class.form__input--error]="hasError('license')" id="license" formControlName="license" [attr.aria-invalid]="hasError('license')" aria-describedby="license-err">
+          <input class="form__input" [class.form__input--error]="hasError('license')" id="license" formControlName="license" [attr.aria-invalid]="hasError('license')" [attr.aria-describedby]="hasError('license') ? 'license-err' : null">
           @if (hasError('license')) { <p class="form__error" id="license-err">Formato: 8 números y una letra.</p> }
         </div>
       </fieldset>
@@ -39,22 +39,22 @@
         <legend class="form__legend">Datos del vehículo</legend>
         <div class="form__field">
           <label class="form__label" for="brand">Marca *</label>
-          <input class="form__input" [class.form__input--error]="hasError('brand')" id="brand" formControlName="brand" [attr.aria-invalid]="hasError('brand')" aria-describedby="brand-err">
+          <input class="form__input" [class.form__input--error]="hasError('brand')" id="brand" formControlName="brand" [attr.aria-invalid]="hasError('brand')" [attr.aria-describedby]="hasError('brand') ? 'brand-err' : null">
           @if (hasError('brand')) { <p class="form__error" id="brand-err">Indica la marca.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="model">Modelo *</label>
-          <input class="form__input" [class.form__input--error]="hasError('model')" id="model" formControlName="model" [attr.aria-invalid]="hasError('model')" aria-describedby="model-err">
+          <input class="form__input" [class.form__input--error]="hasError('model')" id="model" formControlName="model" [attr.aria-invalid]="hasError('model')" [attr.aria-describedby]="hasError('model') ? 'model-err' : null">
           @if (hasError('model')) { <p class="form__error" id="model-err">Indica el modelo.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="year">Año de fabricación *</label>
-          <input class="form__input" [class.form__input--error]="hasError('year')" id="year" type="number" inputmode="numeric" formControlName="year" [attr.aria-invalid]="hasError('year')" aria-describedby="year-err">
+          <input class="form__input" [class.form__input--error]="hasError('year')" id="year" type="number" inputmode="numeric" formControlName="year" [attr.aria-invalid]="hasError('year')" [attr.aria-describedby]="hasError('year') ? 'year-err' : null">
           @if (hasError('year')) { <p class="form__error" id="year-err">Debe estar entre 1900 y 1990.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="category">Categoría *</label>
-          <select class="form__input" [class.form__input--error]="hasError('category')" id="category" formControlName="category" [attr.aria-invalid]="hasError('category')" aria-describedby="category-err">
+          <select class="form__input" [class.form__input--error]="hasError('category')" id="category" formControlName="category" [attr.aria-invalid]="hasError('category')" [attr.aria-describedby]="hasError('category') ? 'category-err' : null">
             <option value="">Selecciona…</option>
             <option>Pre-guerra</option>
             <option>Clásico</option>
@@ -65,28 +65,28 @@
         </div>
         <div class="form__field">
           <label class="form__label" for="power">Caballos *</label>
-          <input class="form__input" [class.form__input--error]="hasError('power')" id="power" type="number" inputmode="numeric" formControlName="power" [attr.aria-invalid]="hasError('power')" aria-describedby="power-err">
+          <input class="form__input" [class.form__input--error]="hasError('power')" id="power" type="number" inputmode="numeric" formControlName="power" [attr.aria-invalid]="hasError('power')" [attr.aria-describedby]="hasError('power') ? 'power-err' : null">
           @if (hasError('power')) { <p class="form__error" id="power-err">Indica los caballos (solo números).</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="country">País *</label>
-          <input class="form__input" [class.form__input--error]="hasError('country')" id="country" formControlName="country" [attr.aria-invalid]="hasError('country')" aria-describedby="country-err">
+          <input class="form__input" [class.form__input--error]="hasError('country')" id="country" formControlName="country" [attr.aria-invalid]="hasError('country')" [attr.aria-describedby]="hasError('country') ? 'country-err' : null">
           @if (hasError('country')) { <p class="form__error" id="country-err">Indica el país.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="image">Imagen *</label>
-          <input class="form__input" [class.form__input--error]="hasError('image')" id="image" formControlName="image" [attr.aria-invalid]="hasError('image')" aria-describedby="image-err">
+          <input class="form__input" [class.form__input--error]="hasError('image')" id="image" formControlName="image" [attr.aria-invalid]="hasError('image')" [attr.aria-describedby]="hasError('image') ? 'image-err' : null">
           @if (hasError('image')) { <p class="form__error" id="image-err">Indica la imagen.</p> }
         </div>
         <div class="form__field">
           <label class="form__label" for="description">Descripción *</label>
-          <input class="form__input" [class.form__input--error]="hasError('description')" id="description" formControlName="description" [attr.aria-invalid]="hasError('description')" aria-describedby="description-err">
+          <input class="form__input" [class.form__input--error]="hasError('description')" id="description" formControlName="description" [attr.aria-invalid]="hasError('description')" [attr.aria-describedby]="hasError('description') ? 'description-err' : null">
           @if (hasError('description')) { <p class="form__error" id="description-err">Indica una descripción.</p> }
         </div>
       </fieldset>
 
       <div class="form__check">
-        <input class="form__checkbox" id="terms" type="checkbox" formControlName="terms" aria-describedby="terms-err">
+        <input class="form__checkbox" id="terms" type="checkbox" formControlName="terms" [attr.aria-invalid]="hasError('terms')" [attr.aria-describedby]="hasError('terms') ? 'terms-err' : null">
         <label for="terms">Acepto el reglamento del rally y la política de privacidad *</label>
       </div>
       @if (hasError('terms')) { <p class="form__error" id="terms-err">Debes aceptar el reglamento.</p> }
